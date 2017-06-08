@@ -4,7 +4,7 @@ using FluentAssertions;
 
 namespace Application.Controllers
 {
-    public class GameOfLifeControllerTest
+    public class PhotoControllerTest
     {
         [Fact]
         public void UpdatePhoto_SendPhotoToFlickr()

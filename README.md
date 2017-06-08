@@ -16,7 +16,7 @@
 
 ## Send request
 - POST 
- - url: http://localhost:5001/api/gameoflife
+ - url: http://localhost:5001/api/photo
  - headers: Content-Type: application/json
 
 ## Run tests
