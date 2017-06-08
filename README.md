@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/partei/webapp.svg?branch=master)](https://travis-ci.org/partei/webapp)
+
 # Partei Webapp
 
 ## Prerequisite
@@ -20,3 +22,4 @@
 ## Run tests
  - dotnet restore ./Application.Tests/Application.Tests.csproj
  - dotnet test ./Application.Tests/Application.Tests.csproj
+
