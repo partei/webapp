@@ -4,9 +4,9 @@
 
 ## Prerequisite
 
-.NET Core SDK 1.0.1
-node 8.0.0
-npm 5.0.0
+- .NET Core SDK 1.0.1
+- node 8.0.0
+- npm 5.0.0
 
 ## Run application without docker
 
