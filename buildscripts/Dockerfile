@@ -6,5 +6,6 @@ COPY app .
 RUN useradd app
 USER app
 EXPOSE 5001
-ENTRYPOINT ["dotnet", "Application.dll"]
+CMD dotnet Application.dll
+
 
