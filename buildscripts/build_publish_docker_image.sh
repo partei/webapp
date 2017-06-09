@@ -1,7 +1,7 @@
 cd $HOME/build/partei/webapp/Application
 dotnet publish -c Release -o ./docker_workdir/app 
 npm install
-npm build
+npm run build
 cp ../Application/wwwroot/* ./docker_workdir/app/wwwroot
 cp ../buildscripts/Dockerfile ./docker_workdir
 cd docker_workdir
