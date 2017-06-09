@@ -1,11 +1,10 @@
 # Version: 0.0.1
 FROM microsoft/aspnetcore:1.1.2
 MAINTAINER Rob Swartenbroekx "rob.swartenbroekx@gmail.com"
+ENV PORT="5001"
+EXPOSE 5001
 WORKDIR /app
 COPY app .
 RUN useradd app
 USER app
-EXPOSE 5001
-CMD dotnet Application.dll --port $port
-
-
+CMD dotnet Application.dll --port $PORT
