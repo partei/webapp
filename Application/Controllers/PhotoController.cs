@@ -16,7 +16,7 @@ namespace Application.Controllers
         [HttpGet]
         public string getPhoto()
         {
-            return "Hello world!"
+            return "Hello world!";
         }
     }
     
