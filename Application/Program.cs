@@ -12,7 +12,7 @@ namespace Application
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
-                .UseUrls("http://+:5001")
+                .UseUrls($"http://+:{args[1]}")
                 .Build();
 
             host.Run();

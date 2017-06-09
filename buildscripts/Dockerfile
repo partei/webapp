@@ -6,6 +6,6 @@ COPY app .
 RUN useradd app
 USER app
 EXPOSE 5001
-CMD dotnet Application.dll
+CMD dotnet Application.dll --port $port
 
 
