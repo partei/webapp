@@ -1,5 +1,8 @@
 cd $HOME/build/partei/webapp/Application
 dotnet publish -c Release -o ./docker_workdir/app 
+npm install
+npm build
+cp ../Application/wwwroot/* ./docker_workdir/app/wwwroot
 cp ../buildscripts/Dockerfile ./docker_workdir
 cd docker_workdir
 docker build -t robisrob/partei-webapp:$TRAVIS_BUILD_NUMBER .
