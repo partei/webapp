@@ -8,6 +8,7 @@ services:
 script:    
   - dotnet restore ./Application.Tests/Application.Tests.csproj
   - dotnet test ./Application.Tests/Application.Tests.csproj
+  - cd Application
   - npm install
   - npm test
   - sh buildscripts/build_publish_docker_image.sh 
