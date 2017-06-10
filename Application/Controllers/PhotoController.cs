@@ -23,7 +23,7 @@ namespace Application.Controllers
             if (chain.TryGetAWSCredentials("shared_profile", out awsCredentials))
             {
                 var fileTransferUtility = new TransferUtility(new AmazonS3Client(awsCredentials, Amazon.RegionEndpoint.EUCentral1));
-                return fileTransferUtility.UploadAsync("uploaded_images/testImage2.jpg",
+                return fileTransferUtility.UploadAsync("./uploaded_images/testImage2.jpg",
                                            "partei-photos", "secondimage");
             }
             throw new Exception("Login AWS failed");
