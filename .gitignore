@@ -5,6 +5,7 @@ obj
 .vs
 *csproj.user
 Application/properties
+Application/docker_workdir
 npm-debug.log
 node_modules
 bundle.js
