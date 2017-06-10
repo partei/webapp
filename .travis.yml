@@ -3,18 +3,20 @@ sudo: false
 language: csharp
 mono: none
 dotnet: 1.0.1
-node_js:
-  - "node"
-cache:
-  directories:
-    - "node_modules"
 services:
   - docker
-script:    
+before_install:
+  - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+  - sudo apt-get install -y nodejs
+install:
   - dotnet restore ./Application.Tests/Application.Tests.csproj
-  - dotnet test ./Application.Tests/Application.Tests.csproj
   - cd Application
   - npm install
+  - cd..
+script:    
+  - dotnet test ./Application.Tests/Application.Tests.csproj
+  - cd Application
   - npm test
+  - cd..
 after_success:
   - sh buildscripts/build_publish_docker_image.sh 
