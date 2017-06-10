@@ -11,11 +11,11 @@ install:
   - nvm use 8.0.0
   - cd Application
   - npm install
-  - cd..
+  - cd ..
 script:    
   - dotnet test ./Application.Tests/Application.Tests.csproj
   - cd Application
   - npm test
-  - cd..
+  - cd ..
 after_success:
   - sh buildscripts/build_publish_docker_image.sh 
