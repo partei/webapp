@@ -7,9 +7,8 @@ services:
   - docker
 install:
   - dotnet restore ./Application.Tests/Application.Tests.csproj
-  - - . $HOME/.nvm/nvm.sh
-  - nvm install latest
-  - nvm use latest
+  - nvm install 8.0.0
+  - nvm use 8.0.0
   - cd Application
   - npm install
   - cd..
