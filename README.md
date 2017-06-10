@@ -15,7 +15,7 @@ cd Application
 npm install
 npm build
 dotnet restore
-dotnet run
+dotnet run --port 5001
 ```
 
 Browse to http://localhost:5001/.
@@ -23,7 +23,7 @@ Browse to http://localhost:5001/.
 ## Run application with docker
 
 ```shell
-docker run -p 5001:5001 robisrob/partei-webapp
+docker run -p 5001:5001 robisrob/partei-webapp:TAG
 ```
 
 Browse to http://localhost:5001/.
