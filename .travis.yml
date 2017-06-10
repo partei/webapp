@@ -11,4 +11,5 @@ script:
   - cd Application
   - npm install
   - npm test
+after_success:
   - sh buildscripts/build_publish_docker_image.sh 
