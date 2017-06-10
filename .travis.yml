@@ -5,10 +5,11 @@ mono: none
 dotnet: 1.0.1
 services:
   - docker
-install:
-  - dotnet restore ./Application.Tests/Application.Tests.csproj
+before-install:
   - nvm install 8.0.0
   - nvm use 8.0.0
+install:
+  - dotnet restore ./Application.Tests/Application.Tests.csproj
   - cd Application
   - npm install
   - cd ..
