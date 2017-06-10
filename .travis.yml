@@ -6,7 +6,7 @@ dotnet: 1.0.1
 services:
   - docker
 before_install:
-  - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+  - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
   - sudo apt-get install -y nodejs
 install:
   - dotnet restore ./Application.Tests/Application.Tests.csproj
