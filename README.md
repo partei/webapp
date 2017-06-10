@@ -23,7 +23,8 @@ Browse to http://localhost:5001/.
 ## Run application with docker
 
 ```shell
-docker run -p 5001:5001 robisrob/partei-webapp:TAG
+docker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -p 5001:5001 robisrob/partei-webapp:TAG
+
 ```
 
 Browse to http://localhost:5001/.
