@@ -5,7 +5,17 @@ mono: none
 dotnet: 1.0.1
 services:
   - docker
-script:    
+install:
   - dotnet restore ./Application.Tests/Application.Tests.csproj
+  - nvm install 8.0.0
+  - nvm use 8.0.0
+  - cd Application
+  - npm install
+  - cd ..
+script:    
   - dotnet test ./Application.Tests/Application.Tests.csproj
+  - cd Application
+  - npm test
+  - cd ..
+after_success:
   - sh buildscripts/build_publish_docker_image.sh 
