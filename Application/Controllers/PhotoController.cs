@@ -9,6 +9,7 @@ using Amazon.Runtime.CredentialManagement;
 using Amazon;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace Application.Controllers
 {
@@ -16,17 +17,22 @@ namespace Application.Controllers
     public class PhotoController : Controller
     {
         [HttpPost]
-        public Task UploadPhoto()
+        public async Task UploadPhoto(IFormFile photo)
         {
-            var chain = new CredentialProfileStoreChain();
-            AWSCredentials awsCredentials;
-            if (chain.TryGetAWSCredentials("shared_profile", out awsCredentials))
+            using (var stream = new MemoryStream())
             {
-                var fileTransferUtility = new TransferUtility(new AmazonS3Client(awsCredentials, Amazon.RegionEndpoint.EUCentral1));
-                return fileTransferUtility.UploadAsync("./uploaded_images/testImage2.jpg",
-                                           "partei-photos", "secondimage");
+                await photo.CopyToAsync(stream);
+                var chain = new CredentialProfileStoreChain();
+                AWSCredentials awsCredentials;
+                if (chain.TryGetAWSCredentials("shared_profile", out awsCredentials))
+                {
+                    var fileTransferUtility = new TransferUtility(new AmazonS3Client(awsCredentials, Amazon.RegionEndpoint.EUCentral1));
+                    await fileTransferUtility.UploadAsync(stream,
+                                               "partei-photos", Guid.NewGuid().ToString());
+                    return;
+                }
+                throw new Exception("Login AWS failed");
             }
-            throw new Exception("Login AWS failed");
         }
 
         [HttpGet]

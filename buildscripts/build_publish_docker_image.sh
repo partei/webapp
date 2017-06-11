@@ -3,7 +3,6 @@ dotnet publish -c Release -o ./docker_workdir/app
 npm install
 npm run build
 cp ../Application/wwwroot/* ./docker_workdir/app/wwwroot
-cp -r ../Application/uploaded_images ./docker_workdir/app/uploaded_images
 cp ../buildscripts/Dockerfile ./docker_workdir
 cd docker_workdir
 docker build -t robisrob/partei-webapp:$TRAVIS_BUILD_NUMBER .
