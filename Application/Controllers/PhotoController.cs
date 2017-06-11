@@ -10,6 +10,8 @@ using Amazon;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using System.Threading;
+using Domain;
 
 namespace Application.Controllers
 {
@@ -27,8 +29,7 @@ namespace Application.Controllers
                 if (chain.TryGetAWSCredentials("shared_profile", out awsCredentials))
                 {
                     var fileTransferUtility = new TransferUtility(new AmazonS3Client(awsCredentials, Amazon.RegionEndpoint.EUCentral1));
-                    await fileTransferUtility.UploadAsync(stream,
-                                               "partei-photos", Guid.NewGuid().ToString());
+                    await new AmazonFileRepository(fileTransferUtility, new GuidService()).StorePhoto(stream);
                     return;
                 }
                 throw new Exception("Login AWS failed");
