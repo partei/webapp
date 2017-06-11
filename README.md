@@ -15,7 +15,7 @@ cd Application
 npm install
 npm build
 dotnet restore
-dotnet run --port 5001
+dotnet run --port 5001 AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 ```
 
 Browse to http://localhost:5001/.
