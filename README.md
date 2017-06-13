@@ -9,13 +9,15 @@
 - npm 5.0.0
 
 ## Run application without docker
-
+Make sure to set the following environment variables:
+- AWS__AccessKey
+- AWS__SecretKey
 ```shell
 cd Application
 npm install
 npm build
 dotnet restore
-dotnet run --port 5001 AWS_ACCESS_KEY_ID AWS_ACCESS_KEY AWS_SECRET_ACCESS_KEY AWS_SECRET_ACCESS_KEY
+dotnet run --port 5001 
 ```
 
 Browse to http://localhost:5001/.
