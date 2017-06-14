@@ -8,7 +8,14 @@
     "build:debug": "webpack",
     "test": "jest",
     "pretty": "prettier --single-quote --write --tab-width 4 \"src/**/*.{js,jsx}\"",
-    "precommit": "npm run pretty && npm test"
+    "precommit": "lint-staged && npm test"
+  },
+  "lint-staged": {
+    "gitDir": "../",
+    "*.js": [
+      "npm run pretty",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -27,6 +34,7 @@
     "babel-preset-react": "^6.24.1",
     "husky": "^0.13.4",
     "jest": "^20.0.4",
+    "lint-staged": "^3.6.1",
     "prettier": "^1.4.4",
     "webpack": "^2.6.1"
   },
