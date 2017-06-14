@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 
@@ -12,7 +13,6 @@ namespace Application
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
-                .UseUrls($"http://+:{args[1]}")
                 .Build();
 
             host.Run();
