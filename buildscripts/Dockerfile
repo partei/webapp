@@ -2,7 +2,6 @@
 FROM microsoft/aspnetcore:1.1.2
 MAINTAINER Rob Swartenbroekx "rob.swartenbroekx@gmail.com"
 ENV PORT="5001"
-EXPOSE $PORT
 WORKDIR /app
 COPY app .
 RUN useradd app
