@@ -18,7 +18,7 @@ cd Application
 npm install
 npm build
 dotnet restore
-dotnet run --port 5001 
+dotnet run
 ```
 
 Browse to http://localhost:5001/.
